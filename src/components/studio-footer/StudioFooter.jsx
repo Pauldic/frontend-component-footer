@@ -43,6 +43,7 @@ const StudioFooter = ({
           iconBefore={Help}
           iconAfter={isOpen ? ExpandLess : ExpandMore}
           size="sm"
+          style={{ display: "none" }}
         >
           {isOpen ? intl.formatMessage(messages.closeHelpButtonLabel)
             : intl.formatMessage(messages.openHelpButtonLabel)}
@@ -113,7 +114,7 @@ const StudioFooter = ({
               {intl.formatMessage(messages.accessibilityRequestLinkLabel)}
             </Hyperlink>
           )}
-          <Hyperlink destination={config.LMS_BASE_URL}>LMS</Hyperlink>
+          <Hyperlink destination={config.LMS_BASE_URL}>NACAR Learning Site</Hyperlink>
         </ActionRow>
         <ActionRow className="mt-3 pb-4 x-small">
           {/*
@@ -122,7 +123,7 @@ const StudioFooter = ({
             Translators: 'edX' and 'Open edX' are trademarks of 'edX Inc.'. Please do not translate
               any of these trademarks and company names.
           */}
-          <FormattedMessage {...messages.trademarkMessage} />
+          {/* <FormattedMessage {...messages.trademarkMessage} />
           <Hyperlink className="ml-1" destination="https://www.edx.org">edX Inc</Hyperlink>.
           <ActionRow.Spacer />
           <Hyperlink destination="https://open.edx.org" className="float-right">
@@ -131,7 +132,7 @@ const StudioFooter = ({
               alt="Powered by Open edX"
               src="https://logos.openedx.org/open-edx-logo-tag.png"
             />
-          </Hyperlink>
+          </Hyperlink> */}
         </ActionRow>
       </Container>
     </>
