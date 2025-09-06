@@ -53,7 +53,7 @@ const StudioFooter = ({
       <Container size="xl" className="px-4">
         <TransitionReplace>
           {isOpen ? (
-            <ActionRow key="help-link-button-row" className="py-4" data-testid="helpButtonRow">
+            <ActionRow key="help-link-button-row" className="py-4" data-testid="helpButtonRow" style={{ display: "none" }}>
               <ActionRow.Spacer />
               <Button as="a" href="https://docs.edx.org/" size="sm">
                 <FormattedMessage {...messages.edxDocumentationButtonLabel} />
