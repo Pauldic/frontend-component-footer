@@ -22,7 +22,7 @@ var StudioFooter = function StudioFooter(_ref) {
   var _useContext = useContext(AppContext),
     config = _useContext.config;
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
-    className: "m-0 mt-6 row align-items-center justify-content-center"
+    className: "m-0 mt-6 row align-items-center justify-content-center data-from-my-mfe-version-1a"
   }, /*#__PURE__*/React.createElement("div", {
     className: "col border-top mr-2"
   }), /*#__PURE__*/React.createElement(Button, {
@@ -44,7 +44,7 @@ var StudioFooter = function StudioFooter(_ref) {
     className: "px-4"
   }, /*#__PURE__*/React.createElement(TransitionReplace, null, isOpen ? /*#__PURE__*/React.createElement(ActionRow, {
     key: "help-link-button-row",
-    className: "py-4",
+    className: "py-4 just-to-know-1",
     "data-testid": "helpButtonRow",
     style: {
       display: "none"
@@ -72,7 +72,7 @@ var StudioFooter = function StudioFooter(_ref) {
     size: "sm",
     "data-testid": "contactUsButton"
   }, /*#__PURE__*/React.createElement(FormattedMessage, messages.contactUsButtonLabel)), /*#__PURE__*/React.createElement(ActionRow.Spacer, null)) : null), /*#__PURE__*/React.createElement(ActionRow, {
-    className: "pt-3 m-0 x-small"
+    className: "pt-3 m-0 x-small just-to-know-2"
   }, "\xA9 ", new Date().getFullYear(), " ", /*#__PURE__*/React.createElement(Hyperlink, {
     destination: config.MARKETING_BASE_URL,
     target: "_blank",
