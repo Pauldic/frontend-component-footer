@@ -34,7 +34,7 @@ const StudioFooter = ({
 
   return (
     <>
-      <div className="m-0 mt-6 row align-items-center justify-content-center">
+      <div className="m-0 mt-6 row align-items-center justify-content-center data-from-my-mfe-version-1a">
         <div className="col border-top mr-2" />
         <Button
           data-testid="helpToggleButton"
@@ -53,7 +53,7 @@ const StudioFooter = ({
       <Container size="xl" className="px-4">
         <TransitionReplace>
           {isOpen ? (
-            <ActionRow key="help-link-button-row" className="py-4" data-testid="helpButtonRow" style={{ display: "none" }}>
+            <ActionRow key="help-link-button-row" className="py-4 just-to-know-1" data-testid="helpButtonRow" style={{ display: "none" }}>
               <ActionRow.Spacer />
               <Button as="a" href="https://docs.edx.org/" size="sm">
                 <FormattedMessage {...messages.edxDocumentationButtonLabel} />
@@ -94,7 +94,7 @@ const StudioFooter = ({
             </ActionRow>
           ) : null}
         </TransitionReplace>
-        <ActionRow className="pt-3 m-0 x-small">
+        <ActionRow className="pt-3 m-0 x-small just-to-know-2">
           © {new Date().getFullYear()} <Hyperlink destination={config.MARKETING_BASE_URL} target="_blank" className="ml-2">{config.SITE_NAME}</Hyperlink>
           <ActionRow.Spacer />
           {!_.isEmpty(config.TERMS_OF_SERVICE_URL) && (
