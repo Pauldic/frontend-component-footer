@@ -4,6 +4,33 @@ $gray-footer: #fcfcfc !default;
   background-color: $gray-footer;
 }
 
+// My Custom
+button[data-testid="helpToggleButton"] {
+  display: none !important;
+}
+
+.help-sidebar {
+  > .sidebar-link,
+  .sidebar-link {
+    display: none !important;
+  }
+}
+
+a {
+  &[href*="edx.org"],
+  &[href*="openedx.org"],
+  &[href*="readthedocs.io"] {
+    display: none !important;
+  }
+}
+
+.footer-top {
+  .powered-area,
+  > .powered-area {
+    display: none !important;
+  }
+}
+
 .help-sidebar > .sidebar-link,
 .help-sidebar .sidebar-link,
 button[data-testid="helpToggleButton"],

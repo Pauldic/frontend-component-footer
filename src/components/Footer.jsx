@@ -43,6 +43,26 @@ class SiteFooter extends React.Component {
     const showLanguageSelector = supportedLanguages.length > 0 && onLanguageSelected;
     const { config } = this.context;
 
+    // <footer id="footer" class="tutor-container">
+    //   <div class="footer-top">
+    //     <div class="powered-area">
+    //       <ul class="logo-list">
+    //         <li>Powered by</li>
+    //         <li><a href="https://edly.io/tutor/" rel="noreferrer" target="_blank">
+    //             <img src="https://nacarlearning.org/theming/asset/images/tutor-logo.png" alt="Runs on Tutor" width="57">
+    //           </a>
+    //         </li>
+    //         <li><a href="https://open.edx.org" rel="noreferrer" target="_blank">
+    //             <img src="https://nacarlearning.org/theming/asset/images/openedx-logo.png" alt="Powered by Open edX" width="79">
+    //             </a>
+    //         </li>
+    //       </ul>
+    //     </div>
+    //   </div>
+    //   <span class="copyright-site">Copyrights ©2025. All Rights Reserved.</span>
+    // </footer>
+
+
     return (
       <footer
         role="contentinfo"
