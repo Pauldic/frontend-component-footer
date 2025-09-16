@@ -1,6 +1,6 @@
 .DS_Store
 coverage
-# dist
+dist
 node_modules
 temp
 
@@ -10,4 +10,4 @@ src/i18n/transifex_input.json
 temp/babel-plugin-react-intl
 /.vscode
 module.config.js
-package-lock.json
+src/i18n/messages

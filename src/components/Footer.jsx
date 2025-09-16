@@ -5,7 +5,7 @@ import { sendTrackEvent } from '@edx/frontend-platform/analytics';
 import { ensureConfig } from '@edx/frontend-platform/config';
 import { AppContext } from '@edx/frontend-platform/react';
 
-import messages from './Footer.messages';
+// import messages from './Footer.messages';
 import LanguageSelector from './LanguageSelector';
 
 ensureConfig([
@@ -40,47 +40,36 @@ class SiteFooter extends React.Component {
       logo,
       intl,
     } = this.props;
+    console.log(this.props);
     const showLanguageSelector = supportedLanguages.length > 0 && onLanguageSelected;
     const { config } = this.context;
-
-    // <footer id="footer" class="tutor-container">
-    //   <div class="footer-top">
-    //     <div class="powered-area">
-    //       <ul class="logo-list">
-    //         <li>Powered by</li>
-    //         <li><a href="https://edly.io/tutor/" rel="noreferrer" target="_blank">
-    //             <img src="https://nacarlearning.org/theming/asset/images/tutor-logo.png" alt="Runs on Tutor" width="57">
-    //           </a>
-    //         </li>
-    //         <li><a href="https://open.edx.org" rel="noreferrer" target="_blank">
-    //             <img src="https://nacarlearning.org/theming/asset/images/openedx-logo.png" alt="Powered by Open edX" width="79">
-    //             </a>
-    //         </li>
-    //       </ul>
-    //     </div>
-    //   </div>
-    //   <span class="copyright-site">Copyrights ©2025. All Rights Reserved.</span>
-    // </footer>
+    const currentYear = new Date().getFullYear();
 
 
     return (
-      <footer
-        role="contentinfo"
-        className="footer d-flex border-top py-3 px-4 data-from-my-mfe-version-2"
-      >
-        <div className="container-fluid d-flex">
-          <a
-            className="d-block"
-            href={config.LMS_BASE_URL}
-            aria-label={intl.formatMessage(messages['footer.logo.ariaLabel'])}
-          >
-            <img
-              style={{ maxHeight: 45 }}
-              src={logo || config.LOGO_TRADEMARK_URL}
-              alt={intl.formatMessage(messages['footer.logo.altText'])}
-            />
-          </a>
-          <div className="flex-grow-1" />
+      <footer class="primary" role="contentinfo">
+        <div class="footer-content-primary data-from-my-mfe-version-2">
+          <div class="colophon">
+            <p>&copy; {currentYear}{' '} <a href={config.LMS_BASE_URL} rel="external">{config.PLATFORM_NAME}</a>.</p>
+          </div>
+
+          <nav class="nav-peripheral" aria-label="">
+            <ol>
+              <li class="nav-item nav-peripheral-aar">
+                <a href={config.ABOUT_URL}>{intl.formatMessage(messages['footer.legalLinks.privacyPolicy'])}</a>
+              </li>
+              <li class="nav-item">
+                <a href={config.CONTACT_URL}>{intl.formatMessage(messages['footer.connectLinks.contact'])}</a>
+              </li>
+              <li class="nav-item nav-peripheral-tos">
+                <a href={config.TOS_URL}>{intl.formatMessage(messages['footer.legalLinks.termsOfService'])}</a>
+              </li>
+              <li class="nav-item nav-peripheral-pp">
+                <a href={config.PRIVACY_URL}>{intl.formatMessage(messages['footer.legalLinks.privacyPolicy'])}</a>
+              </li>
+            </ol>
+          </nav>
+
           {showLanguageSelector && (
             <LanguageSelector
               options={supportedLanguages}

@@ -73,7 +73,7 @@ const messages = defineMessages({
   },
   'footer.legalLinks.termsOfService': {
     id: 'footer.legalLinks.termsOfService',
-    defaultMessage: 'Terms of Service & Honor Code',
+    defaultMessage: 'Terms of Service',
     description: 'The label for the link to the edX terms of service page.',
   },
   'footer.legalLinks.privacyPolicy': {
