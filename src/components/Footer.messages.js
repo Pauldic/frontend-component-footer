@@ -38,7 +38,7 @@ const messages = defineMessages({
   },
   'footer.edxLinks.about': {
     id: 'footer.edxLinks.about',
-    defaultMessage: 'About',
+    defaultMessage: 'About Us',
     description: 'The label for the link to the about edX page.',
   },
   'footer.edxLinks.business': {

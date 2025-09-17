@@ -13,8 +13,11 @@ import {
 } from '@edx/paragon';
 import { ExpandLess, ExpandMore, Help } from '@edx/paragon/icons';
 import messages from './messages';
+import '../../_footer.scss';
 
 ensureConfig([
+  'ABOUT_URL',
+  'CONTACT_URL',
   'LMS_BASE_URL',
   'MARKETING_SITE_BASE_URL',
   'TERMS_OF_SERVICE_URL',
@@ -97,11 +100,22 @@ const StudioFooter = ({
         <ActionRow className="pt-3 m-0 x-small just-to-know-2">
           © {new Date().getFullYear()} <Hyperlink destination={config.MARKETING_BASE_URL} target="_blank" className="ml-2">{config.SITE_NAME}</Hyperlink>
           <ActionRow.Spacer />
+          {!_.isEmpty(config.ABOUT_URL) && (
+            <Hyperlink destination={config.ABOUT_URL} data-testid="aboutUs">
+              {intl.formatMessage(messages.aboutUsLink)}
+            </Hyperlink>
+          )}
+          {!_.isEmpty(config.CONTACT_URL) && (
+            <Hyperlink destination={config.CONTACT_URL} data-testid="contactUS">
+              {intl.formatMessage(messages.contactUsLink)}
+            </Hyperlink>
+          )}
           {!_.isEmpty(config.TERMS_OF_SERVICE_URL) && (
             <Hyperlink destination={config.TERMS_OF_SERVICE_URL} data-testid="termsOfService">
               {intl.formatMessage(messages.termsOfServiceLinkLabel)}
             </Hyperlink>
-          )}{!_.isEmpty(config.PRIVACY_POLICY_URL) && (
+          )}
+          {!_.isEmpty(config.PRIVACY_POLICY_URL) && (
             <Hyperlink destination={config.PRIVACY_POLICY_URL} data-testid="privacyPolicy">
               {intl.formatMessage(messages.privacyPolicyLinkLabel)}
             </Hyperlink>
@@ -114,7 +128,7 @@ const StudioFooter = ({
               {intl.formatMessage(messages.accessibilityRequestLinkLabel)}
             </Hyperlink>
           )}
-          <Hyperlink destination={config.LMS_BASE_URL}>NACAR Learning Site</Hyperlink>
+          <Hyperlink destination={config.LMS_BASE_URL}>{config.SITE_NAME} Site</Hyperlink>
         </ActionRow>
         <ActionRow className="mt-3 pb-4 x-small">
           {/*

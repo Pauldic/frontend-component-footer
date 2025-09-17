@@ -33,8 +33,18 @@ const messages = defineMessages({
   },
   contactUsButtonLabel: {
     id: 'authoring.footer.help.contactUs.button.label',
-    defaultMessage: 'Contact us',
+    defaultMessage: 'Contact Us',
     description: 'Label for button that links to the email for partner support',
+  },
+  aboutUsLink: {
+    id: 'authoring.footer.help.aboutUs.link.label',
+    defaultMessage: 'About Us',
+    description: 'Label for links to the About Us',
+  },
+  contactUsLink: {
+    id: 'authoring.footer.help.contactUs.link.label',
+    defaultMessage: 'Contact Us',
+    description: 'Label for links to the Contact Us',
   },
   termsOfServiceLinkLabel: {
     id: 'authoring.footer.termsOfService.link.label',
