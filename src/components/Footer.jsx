@@ -5,7 +5,7 @@ import { sendTrackEvent } from '@edx/frontend-platform/analytics';
 import { ensureConfig } from '@edx/frontend-platform/config';
 import { AppContext } from '@edx/frontend-platform/react';
 
-// import messages from './Footer.messages';
+import messages from './Footer.messages';
 import LanguageSelector from './LanguageSelector';
 
 ensureConfig([
@@ -45,8 +45,6 @@ class SiteFooter extends React.Component {
       logo,
       intl,
     } = this.props;
-
-    console.log(this.props);
 
     const showLanguageSelector = supportedLanguages.length > 0 && onLanguageSelected;
     const { config } = this.context;
