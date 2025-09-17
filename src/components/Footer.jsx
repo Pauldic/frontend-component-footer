@@ -11,6 +11,11 @@ import LanguageSelector from './LanguageSelector';
 ensureConfig([
   'LMS_BASE_URL',
   'LOGO_TRADEMARK_URL',
+  'PLATFORM_NAME',
+  'ABOUT_URL',
+  'CONTACT_URL',
+  'TOS_URL',
+  'PRIVACY_URL',
 ], 'Footer component');
 
 const EVENT_NAMES = {
@@ -40,7 +45,9 @@ class SiteFooter extends React.Component {
       logo,
       intl,
     } = this.props;
+
     console.log(this.props);
+
     const showLanguageSelector = supportedLanguages.length > 0 && onLanguageSelected;
     const { config } = this.context;
     const currentYear = new Date().getFullYear();
@@ -70,12 +77,8 @@ class SiteFooter extends React.Component {
             </ol>
           </nav>
 
-          {showLanguageSelector && (
-            <LanguageSelector
-              options={supportedLanguages}
-              onSubmit={onLanguageSelected}
-            />
-          )}
+          {showLanguageSelector && (<LanguageSelector options={supportedLanguages} onSubmit={onLanguageSelected} />)}
+
         </div>
       </footer>
     );
