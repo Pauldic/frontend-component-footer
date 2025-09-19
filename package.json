@@ -1,6 +1,6 @@
 {
   "name": "@pauldic/frontend-component-footer",
-  "version": "1.0.19",
+  "version": "1.0.21",
   "description": "Footer component for use when building Open edX frontend applications",
   "main": "dist/index.js",
   "publishConfig": {
