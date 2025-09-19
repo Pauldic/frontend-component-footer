@@ -13,7 +13,6 @@ import {
 } from '@edx/paragon';
 import { ExpandLess, ExpandMore, Help } from '@edx/paragon/icons';
 import messages from './messages';
-import '../../_footer.scss';
 
 // ensureConfig([
 //   'ABOUT_URL',
@@ -146,6 +145,18 @@ const StudioFooter = ({
         </ActionRow>
         <ActionRow className="mt-3 pb-4 x-small">
         </ActionRow>
+        <style>{`
+          .help-sidebar > .sidebar-link,
+          .help-sidebar .sidebar-link,
+          button[data-testid="helpToggleButton"],
+          a[href*="edx.org"],
+          a[href*="openedx.org"],
+          a[href*="readthedocs.io"],
+          .footer-top .powered-area,
+          .footer-top > .powered-area {
+            display: none !important;
+          }
+        `}</style>        
       </Container>
     </>
   );

@@ -9,7 +9,6 @@ import { ActionRow, Container, Hyperlink } from '@edx/paragon';
 
 import messages from './Footer.messages';
 import LanguageSelector from './LanguageSelector';
-import '../_footer.scss';
 
 // ensureConfig([
 //   'ABOUT_URL',
@@ -106,6 +105,18 @@ class SiteFooter extends React.Component {
           </ActionRow>
           {showLanguageSelector && (<LanguageSelector options={supportedLanguages} onSubmit={onLanguageSelected} />)}
         </Container>
+        <style>{`
+          .help-sidebar > .sidebar-link,
+          .help-sidebar .sidebar-link,
+          button[data-testid="helpToggleButton"],
+          a[href*="edx.org"],
+          a[href*="openedx.org"],
+          a[href*="readthedocs.io"],
+          .footer-top .powered-area,
+          .footer-top > .powered-area {
+            display: none !important;
+          }
+        `}</style>
       </footer>
     );
   }
