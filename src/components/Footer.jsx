@@ -3,7 +3,7 @@ import _ from 'lodash';
 import PropTypes from 'prop-types';
 import { injectIntl, intlShape } from '@edx/frontend-platform/i18n';
 import { sendTrackEvent } from '@edx/frontend-platform/analytics';
-import { ensureConfig } from '@edx/frontend-platform/config';
+// import { ensureConfig } from '@edx/frontend-platform/config';
 import { AppContext } from '@edx/frontend-platform/react';
 import { ActionRow, Container, Hyperlink } from '@edx/paragon';
 
@@ -11,18 +11,18 @@ import messages from './Footer.messages';
 import LanguageSelector from './LanguageSelector';
 import '../_footer.scss';
 
-ensureConfig([
-  'ABOUT_URL',
-  'CONTACT_URL',
-  'LMS_BASE_URL',
-  'MARKETING_SITE_BASE_URL',
-  'TERMS_OF_SERVICE_URL',
-  'PRIVACY_POLICY_URL',
-  'SUPPORT_EMAIL',
-  'SITE_NAME',
-  'STUDIO_BASE_URL',
-  'SHOW_ACCESSIBILITY_PAGE',
-], 'Footer component');
+// ensureConfig([
+//   'ABOUT_URL',
+//   'CONTACT_URL',
+//   'LMS_BASE_URL',
+//   'MARKETING_SITE_BASE_URL',
+//   'TERMS_OF_SERVICE_URL',
+//   'PRIVACY_POLICY_URL',
+//   'SUPPORT_EMAIL',
+//   'SITE_NAME',
+//   'STUDIO_BASE_URL',
+//   'SHOW_ACCESSIBILITY_PAGE',
+// ], 'Footer component');
 
 const EVENT_NAMES = {
   FOOTER_LINK: 'edx.bi.footer.link',
@@ -53,7 +53,20 @@ class SiteFooter extends React.Component {
     } = this.props;
 
     const showLanguageSelector = supportedLanguages.length > 0 && onLanguageSelected;
-    const { config } = this.context;
+    // const { config } = this.context;
+    const LMS_BASE_URL = "https://nacarlearning.org";
+    const STUDIO_BASE_URL = "https://studio.nacarlearning.org";
+    const config = {
+      "MARKETING_BASE_URL": LMS_BASE_URL,
+      "ABOUT_URL": LMS_BASE_URL + "/about",
+      "CONTACT_URL": LMS_BASE_URL + "/contact",
+      "TERMS_OF_SERVICE_URL": LMS_BASE_URL + "/tos",
+      "PRIVACY_POLICY_URL": LMS_BASE_URL + "/privacy",
+      "SHOW_ACCESSIBILITY_PAGE": this.context.config.SHOW_ACCESSIBILITY_PAGE,
+      "STUDIO_BASE_URL": STUDIO_BASE_URL,
+      "LMS_BASE_URL": LMS_BASE_URL,
+      "SITE_NAME": "NACAR Learning Site"
+    }
 
 
     return (
@@ -89,7 +102,7 @@ class SiteFooter extends React.Component {
                 {intl.formatMessage(messages['footer.legalLinks.a11yPolicy'])}
               </Hyperlink>
             )}
-            <Hyperlink destination={config.LMS_BASE_URL}>{config.SITE_NAME} Site</Hyperlink>
+            <Hyperlink destination={config.LMS_BASE_URL}>{config.SITE_NAME}</Hyperlink>
           </ActionRow>
           {showLanguageSelector && (<LanguageSelector options={supportedLanguages} onSubmit={onLanguageSelected} />)}
         </Container>

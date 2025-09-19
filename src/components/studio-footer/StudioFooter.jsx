@@ -1,8 +1,8 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import _ from 'lodash';
 import { intlShape, injectIntl, FormattedMessage } from '@edx/frontend-platform/i18n';
-import { ensureConfig } from '@edx/frontend-platform';
-import { AppContext } from '@edx/frontend-platform/react';
+// import { ensureConfig } from '@edx/frontend-platform';
+// import { AppContext } from '@edx/frontend-platform/react';
 import {
   ActionRow,
   Button,
@@ -15,25 +15,39 @@ import { ExpandLess, ExpandMore, Help } from '@edx/paragon/icons';
 import messages from './messages';
 import '../../_footer.scss';
 
-ensureConfig([
-  'ABOUT_URL',
-  'CONTACT_URL',
-  'LMS_BASE_URL',
-  'MARKETING_SITE_BASE_URL',
-  'TERMS_OF_SERVICE_URL',
-  'PRIVACY_POLICY_URL',
-  'SUPPORT_EMAIL',
-  'SITE_NAME',
-  'STUDIO_BASE_URL',
-  'SHOW_ACCESSIBILITY_PAGE',
-], 'Studio Footer component');
+// ensureConfig([
+//   'ABOUT_URL',
+//   'CONTACT_URL',
+//   'LMS_BASE_URL',
+//   'MARKETING_SITE_BASE_URL',
+//   'TERMS_OF_SERVICE_URL',
+//   'PRIVACY_POLICY_URL',
+//   'SUPPORT_EMAIL',
+//   'SITE_NAME',
+//   'STUDIO_BASE_URL',
+//   'SHOW_ACCESSIBILITY_PAGE',
+// ], 'Studio Footer component');
 
 const StudioFooter = ({
   // injected
   intl,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { config } = useContext(AppContext);
+  // const { config } = useContext(AppContext);
+  const LMS_BASE_URL = "https://nacarlearning.org";
+  const STUDIO_BASE_URL = "https://studio.nacarlearning.org";
+  const config = {
+    "SUPPORT_EMAIL": "education@nacarlearning.org",
+    "MARKETING_BASE_URL": LMS_BASE_URL,
+    "ABOUT_URL": LMS_BASE_URL + "/about",
+    "CONTACT_URL": LMS_BASE_URL + "/contact",
+    "TERMS_OF_SERVICE_URL": LMS_BASE_URL + "/tos",
+    "PRIVACY_POLICY_URL": LMS_BASE_URL + "/privacy",
+    "SHOW_ACCESSIBILITY_PAGE": this.context.config.SHOW_ACCESSIBILITY_PAGE,
+    "STUDIO_BASE_URL": STUDIO_BASE_URL,
+    "LMS_BASE_URL": LMS_BASE_URL,
+    "SITE_NAME": "NACAR Learning Site"
+  }
 
   return (
     <>
@@ -131,22 +145,6 @@ const StudioFooter = ({
           <Hyperlink destination={config.LMS_BASE_URL}>{config.SITE_NAME} Site</Hyperlink>
         </ActionRow>
         <ActionRow className="mt-3 pb-4 x-small">
-          {/*
-            Site operators: Please do not remove this paragraph! this attributes back to edX and
-              makes your acknowledgement of edX's trademarks clear.
-            Translators: 'edX' and 'Open edX' are trademarks of 'edX Inc.'. Please do not translate
-              any of these trademarks and company names.
-          */}
-          {/* <FormattedMessage {...messages.trademarkMessage} />
-          <Hyperlink className="ml-1" destination="https://www.edx.org">edX Inc</Hyperlink>.
-          <ActionRow.Spacer />
-          <Hyperlink destination="https://open.edx.org" className="float-right">
-            <Image
-              width="120px"
-              alt="Powered by Open edX"
-              src="https://logos.openedx.org/open-edx-logo-tag.png"
-            />
-          </Hyperlink> */}
         </ActionRow>
       </Container>
     </>
