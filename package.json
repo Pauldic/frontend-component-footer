@@ -1,6 +1,6 @@
 {
   "name": "@pauldic/frontend-component-footer",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "description": "Footer component for use when building Open edX frontend applications",
   "main": "dist/index.js",
   "publishConfig": {
@@ -8,6 +8,7 @@
   },
   "scripts": {
     "build": "make build",
+    "prepublishOnly": "npm run build",
     "i18n_extract": "fedx-scripts formatjs extract",
     "lint": "fedx-scripts eslint --ext .js --ext .jsx .",
     "snapshot": "fedx-scripts jest --updateSnapshot",
