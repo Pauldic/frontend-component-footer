@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import _ from 'lodash';
 import { intlShape, injectIntl, FormattedMessage } from '@edx/frontend-platform/i18n';
 // import { ensureConfig } from '@edx/frontend-platform';
-// import { AppContext } from '@edx/frontend-platform/react';
+import { AppContext } from '@edx/frontend-platform/react';
 import {
   ActionRow,
   Button,
@@ -32,7 +32,7 @@ const StudioFooter = ({
   intl,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  // const { config } = useContext(AppContext);
+  // const { _config } = useContext(AppContext);
   const LMS_BASE_URL = "https://nacarlearning.org";
   const STUDIO_BASE_URL = "https://studio.nacarlearning.org";
   const config = {
@@ -42,7 +42,7 @@ const StudioFooter = ({
     "CONTACT_URL": LMS_BASE_URL + "/contact",
     "TERMS_OF_SERVICE_URL": LMS_BASE_URL + "/tos",
     "PRIVACY_POLICY_URL": LMS_BASE_URL + "/privacy",
-    "SHOW_ACCESSIBILITY_PAGE": this.context.config.SHOW_ACCESSIBILITY_PAGE,
+    "SHOW_ACCESSIBILITY_PAGE": "false",
     "STUDIO_BASE_URL": STUDIO_BASE_URL,
     "LMS_BASE_URL": LMS_BASE_URL,
     "SITE_NAME": "NACAR Learning Site"
@@ -110,42 +110,49 @@ const StudioFooter = ({
             </ActionRow>
           ) : null}
         </TransitionReplace>
-        <ActionRow className="pt-3 m-0 x-small just-to-know-2">
-          © {new Date().getFullYear()} <Hyperlink destination={config.MARKETING_BASE_URL} target="_blank" className="ml-2">{config.SITE_NAME}</Hyperlink>
-          <ActionRow.Spacer />
+        <ActionRow className="pt-3 m-0 x-small just-to-know-2 footer-links">
           {!_.isEmpty(config.ABOUT_URL) && (
-            <Hyperlink destination={config.ABOUT_URL} data-testid="aboutUs">
+            <Hyperlink destination={config.ABOUT_URL} data-testid="aboutUs" className="footer-link" >
               {intl.formatMessage(messages.aboutUsLink)}
             </Hyperlink>
           )}
           {!_.isEmpty(config.CONTACT_URL) && (
-            <Hyperlink destination={config.CONTACT_URL} data-testid="contactUS">
+            <Hyperlink destination={config.CONTACT_URL} data-testid="contactUS" className="footer-link">
               {intl.formatMessage(messages.contactUsLink)}
             </Hyperlink>
           )}
           {!_.isEmpty(config.TERMS_OF_SERVICE_URL) && (
-            <Hyperlink destination={config.TERMS_OF_SERVICE_URL} data-testid="termsOfService">
+            <Hyperlink destination={config.TERMS_OF_SERVICE_URL} data-testid="termsOfService" className="footer-link">
               {intl.formatMessage(messages.termsOfServiceLinkLabel)}
             </Hyperlink>
           )}
           {!_.isEmpty(config.PRIVACY_POLICY_URL) && (
-            <Hyperlink destination={config.PRIVACY_POLICY_URL} data-testid="privacyPolicy">
+            <Hyperlink destination={config.PRIVACY_POLICY_URL} data-testid="privacyPolicy" className="footer-link">
               {intl.formatMessage(messages.privacyPolicyLinkLabel)}
             </Hyperlink>
           )}
           {config.SHOW_ACCESSIBILITY_PAGE === 'true' && (
-            <Hyperlink
-              destination={`${config.STUDIO_BASE_URL}/accessibility`}
-              data-testid="accessibilityRequest"
-            >
+            <Hyperlink destination={`${config.STUDIO_BASE_URL}/accessibility`} data-testid="accessibilityRequest" className="footer-link">
               {intl.formatMessage(messages.accessibilityRequestLinkLabel)}
             </Hyperlink>
-          )}
-          <Hyperlink destination={config.LMS_BASE_URL}>{config.SITE_NAME} Site</Hyperlink>
+          )}          
         </ActionRow>
         <ActionRow className="mt-3 pb-4 x-small">
+          © {new Date().getFullYear()} <Hyperlink destination={config.MARKETING_BASE_URL} target="_blank" className="ml-2">{config.SITE_NAME}</Hyperlink>
+          {/* <ActionRow.Spacer />
+          <Hyperlink destination={config.LMS_BASE_URL} className="footer-link-lms">{config.SITE_NAME}</Hyperlink> */}
         </ActionRow>
         <style>{`
+          .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            text-align: center;
+          }
+          .footer-link { 
+            transition: color 0.2s;
+          }
           .help-sidebar > .sidebar-link,
           .help-sidebar .sidebar-link,
           button[data-testid="helpToggleButton"],

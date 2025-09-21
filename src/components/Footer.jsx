@@ -71,25 +71,23 @@ class SiteFooter extends React.Component {
     return (
       <footer class="primary" role="contentinfo">
         <Container size="xl" className="px-4">
-          <ActionRow className="pt-3 m-0 x-small just-to-know-2">
-            © {new Date().getFullYear()} <Hyperlink destination={config.MARKETING_BASE_URL} target="_blank" className="ml-2">{config.SITE_NAME}</Hyperlink>
-            <ActionRow.Spacer />
+          <ActionRow className="pt-3 m-0 x-small just-to-know-2 footer-links">
             {!_.isEmpty(config.ABOUT_URL) && (
-              <Hyperlink destination={config.ABOUT_URL} data-testid="aboutUs">
+              <Hyperlink destination={config.ABOUT_URL} data-testid="aboutUs" className="footer-link">
                 {intl.formatMessage(messages['footer.edxLinks.about'])}
               </Hyperlink>
             )}
             {!_.isEmpty(config.CONTACT_URL) && (
-              <Hyperlink destination={config.CONTACT_URL} data-testid="contactUs">
+              <Hyperlink destination={config.CONTACT_URL} data-testid="contactUs" className="footer-link">
                 {intl.formatMessage(messages['footer.connectLinks.contact'])}
               </Hyperlink>
             )}
             {!_.isEmpty(config.TERMS_OF_SERVICE_URL) && (
-              <Hyperlink destination={config.TERMS_OF_SERVICE_URL} data-testid="termsOfService">
+              <Hyperlink destination={config.TERMS_OF_SERVICE_URL} data-testid="termsOfService" className="footer-link">
                 {intl.formatMessage(messages['footer.legalLinks.termsOfService'])}
               </Hyperlink>
             )}{!_.isEmpty(config.PRIVACY_POLICY_URL) && (
-              <Hyperlink destination={config.PRIVACY_POLICY_URL} data-testid="privacyPolicy">
+              <Hyperlink destination={config.PRIVACY_POLICY_URL} data-testid="privacyPolicy" className="footer-link">
                 {intl.formatMessage(messages['footer.legalLinks.privacyPolicy'])}
               </Hyperlink>
             )}
@@ -101,11 +99,23 @@ class SiteFooter extends React.Component {
                 {intl.formatMessage(messages['footer.legalLinks.a11yPolicy'])}
               </Hyperlink>
             )}
-            <Hyperlink destination={config.LMS_BASE_URL}>{config.SITE_NAME}</Hyperlink>
+          </ActionRow>
+          <ActionRow className="mb-3">
+            © {new Date().getFullYear()} <Hyperlink destination={config.MARKETING_BASE_URL} target="_blank" className="ml-2">{config.SITE_NAME}</Hyperlink>
           </ActionRow>
           {showLanguageSelector && (<LanguageSelector options={supportedLanguages} onSubmit={onLanguageSelected} />)}
         </Container>
         <style>{`
+          .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            text-align: center;
+          }
+          .footer-link { 
+            transition: color 0.2s;
+          }
           .help-sidebar > .sidebar-link,
           .help-sidebar .sidebar-link,
           button[data-testid="helpToggleButton"],
