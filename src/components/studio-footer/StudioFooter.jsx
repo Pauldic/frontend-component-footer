@@ -163,6 +163,9 @@ const StudioFooter = ({
           .footer-top > .powered-area {
             display: none !important;
           }
+          div.pgn__modal-body-content div.video-editor > button:first-child {
+            display: none !important;
+          }
         `}</style>        
       </Container>
     </>
