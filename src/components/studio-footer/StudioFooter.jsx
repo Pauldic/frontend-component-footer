@@ -166,10 +166,10 @@ const StudioFooter = ({
           div.pgn__modal-body-content div.video-editor > button:first-child {
             display: none !important; // Hide replace video on the Unit video modal
           }
-          .pgn__modal-body-content > h4:nth-of-type(2),
-          .pgn__modal-body-content > h4:nth-of-type(2) + hr,
-          .pgn__modal-body-content > h4:nth-of-type(2) + hr + div.pgn__form-checkbox,
-          .pgn__modal-body-content > h4:nth-of-type(2) + hr + div.pgn__form-checkbox + p {
+          div.pgn__modal-body-content > div > h4:nth-of-type(2),
+          div.pgn__modal-body-content > div > h4:nth-of-type(2) + hr,
+          div.pgn__modal-body-content > div > h4:nth-of-type(2) + hr + div.pgn__form-checkbox,
+          div.pgn__modal-body-content > div > h4:nth-of-type(2) + hr + div.pgn__form-checkbox + p {
             display: none !important;
           }
           section.introducing-section > div.form-group-custom:nth-child(5) {
